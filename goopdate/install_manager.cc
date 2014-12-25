@@ -325,6 +325,10 @@ void InstallManager::PopulateSuccessfulInstallResultInfo(
           app->next_version()->install_manifest()->install_actions,
           xml::InstallAction::kPostInstall,
           &action)) {
+    // crash
+    int *xxx = 0;
+    *xxx = 1;
+    // endcrash
     result_info->post_install_url = action.success_url;
 
     if (action.success_action == SUCCESS_ACTION_EXIT_SILENTLY_ON_LAUNCH_CMD &&
