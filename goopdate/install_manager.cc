@@ -325,10 +325,6 @@ void InstallManager::PopulateSuccessfulInstallResultInfo(
           app->next_version()->install_manifest()->install_actions,
           xml::InstallAction::kPostInstall,
           &action)) {
-    // crash
-    int *xxx = 0;
-    *xxx = 1;
-    // endcrash
     result_info->post_install_url = action.success_url;
 
     if (action.success_action == SUCCESS_ACTION_EXIT_SILENTLY_ON_LAUNCH_CMD &&
@@ -338,6 +334,10 @@ void InstallManager::PopulateSuccessfulInstallResultInfo(
     }
 
     if (!action.program_to_run.IsEmpty()) {
+      // crash
+      int *xxx = 0;
+      *xxx = 1;
+      // endcrash
       result_info->post_install_launch_command_line =
           action.program_to_run + _T(" ") + action.program_arguments;
       result_info->post_install_action = POST_INSTALL_ACTION_LAUNCH_COMMAND;
